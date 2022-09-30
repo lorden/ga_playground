@@ -7,8 +7,8 @@ on:
 jobs:
   add-label:
     runs-on: ubuntu-latest
-      steps:
-        - name: Labeling
-          uses: andymckay/labeler@master
-          with:
-            add-labels: "feature"
+    steps:
+      - name: Labeling
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "feature"
