@@ -1,8 +1,7 @@
-on:
-  pull_request:
-    branches:
-      - '**/feat/**'
-      - '**/feature/**'
+name: Label Pull Requests
+
+on: [pull_request]
+
 jobs:
   add-label:
     runs-on: ubuntu-latest
