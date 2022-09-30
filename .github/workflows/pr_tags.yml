@@ -1,0 +1,14 @@
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - '**/feat/**'
+      - '**/feature/**'
+jobs:
+  add-label:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Labeling
+          uses: andymckay/labeler@master
+          with:
+            add-labels: "feature"
