@@ -1,11 +1,11 @@
-name: Label Feature Pull Requests
+name: Label Bug Pull Requests
 
 on: 
   pull_request:
     types: [opened]
     branches:
-      - '**/feat/**'
-      - '**/feature/**'
+      - '**/fix/**'
+      - '**/bug/**'
 jobs:
   add-label:
     runs-on: ubuntu-latest
@@ -13,4 +13,4 @@ jobs:
       - name: Labeling
         uses: andymckay/labeler@master
         with:
-          add-labels: "feature"
+          add-labels: "fix"
