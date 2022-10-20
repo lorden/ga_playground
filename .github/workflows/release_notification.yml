@@ -14,43 +14,45 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_TEST }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
         with:
-           text: A release is published.
-           blocks: |
-             [
-               {
-                 "type": "header",
-                 "text": {
-                   "type": "plain_text",
-                   "text": "${{ github.event.release.tag_name}} is published!"
-                 }
-               },
-               {
-                 "type": "section",
-                 "text": {
-                   "type": "mrkdwn",
-                   "text": "*Author:*\n${{ github.actor }}"
-                 }
-               },
+          payload: |
+            {
+              "text": "A release has been published!",
+              "blocks": [
                  {
-                 "type": "section",
-                 "text": {
-                   "type": "mrkdwn",
-                   "text": "*Information:*"
+                   "type": "header",
+                   "text": {
+                     "type": "plain_text",
+                     "text": "${{ github.event.release.tag_name}} is published!"
+                   }
+                 },
+                 {
+                   "type": "section",
+                   "text": {
+                     "type": "mrkdwn",
+                     "text": "*Author:*\n${{ github.actor }}"
+                   }
+                 },
+                   {
+                   "type": "section",
+                   "text": {
+                     "type": "mrkdwn",
+                     "text": "*Information:*"
+                   }
+                 },
+                 {
+                   "type": "section",
+                   "text": {
+                     "type": "mrkdwn",
+                     "text": ${{ toJSON(github.event.release.body) }}
+                   }
+                 },
+                 {
+                   "type": "section",
+                   "text": {
+                     "type": "mrkdwn",
+                     "text": "${{ github.event.release.html_url }}"
+                   }
                  }
-               },
-               {
-                 "type": "section",
-                 "text": {
-                   "type": "mrkdwn",
-                   "text": ${{ toJSON(github.event.release.body) }}
-                 }
-               },
-               {
-                 "type": "section",
-                 "text": {
-                   "type": "mrkdwn",
-                   "text": "${{ github.event.release.html_url }}"
-                 }
-               }
-             ]
+              ]
+            }
 
