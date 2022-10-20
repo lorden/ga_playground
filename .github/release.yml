@@ -1,0 +1,13 @@
+changelog:
+  categories:
+    - title: New Features 🎉
+      labels:
+        - feat
+        - feature
+    - title: Fixes 🐛
+      labels:
+        - bug
+        - fix
+    - title: Other changes 🤖
+      labels:
+        - "*"
