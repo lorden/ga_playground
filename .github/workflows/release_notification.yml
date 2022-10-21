@@ -27,21 +27,14 @@ jobs:
                    "type": "header",
                    "text": {
                      "type": "plain_text",
-                     "text": "${{ github.event.release.tag_name}} is published!"
+                     "text": "${{ github.event.release.tag_name}} has been published!"
                    }
                  },
                  {
                    "type": "section",
                    "text": {
                      "type": "mrkdwn",
-                     "text": "*Author:*\n${{ github.actor }}"
-                   }
-                 },
-                 {
-                   "type": "section",
-                   "text": {
-                     "type": "mrkdwn",
-                     "text": "*Release Notes:*"
+                     "text": "*Author:* ${{ github.actor }}"
                    }
                  },
                  {
@@ -49,13 +42,6 @@ jobs:
                    "text": {
                      "type": "mrkdwn",
                      "text": "${{ env.RELEASE_NOTES }}"
-                   }
-                 },
-                 {
-                   "type": "section",
-                   "text": {
-                     "type": "mrkdwn",
-                     "text": "${{ github.event.release.html_url }}"
                    }
                  }
               ]
