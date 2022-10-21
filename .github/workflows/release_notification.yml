@@ -43,7 +43,7 @@ jobs:
                    "type": "section",
                    "text": {
                      "type": "mrkdwn",
-                     "text": ${{ github.event.release.body }}
+                     "text": "${{ github.event.release.body }}"
                    }
                  },
                  {
