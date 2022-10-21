@@ -1,0 +1,34 @@
+{
+  "labels": {
+    "feature": {
+      "name": "feature",
+      "colour": "#2a9d8f",
+      "description": "New features"
+    },
+    "fix": {
+      "name": "fix",
+      "colour": "#e9c46a",
+      "description": "Bug fixes"
+    }
+  },
+  "pr": {
+    "feature": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "/(feat|feature)/"
+        }
+      ]
+    },
+    "fix": {
+      "requires": 1,
+      "conditions": [
+        {
+          "type": "branchMatches",
+          "pattern": "/(fix|bug|bugfix|hotfix)/"
+        }
+      ]
+    }
+  }
+}
