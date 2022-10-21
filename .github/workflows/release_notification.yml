@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clean release notes
-        run: echo "RELEASE_NOTES=${{toJSON(github.event.release.body)}}" >> $GITHUB_ENV
-      - name: Clean release notes 2
-        run: echo "RELEASE_NOTES_2=${{toJSON(github.event.release.body)}}| sed 's|##||'" >> $GITHUB_ENV
+        run: echo "RELEASE_NOTES=`echo '${{toJSON(github.event.release.body)}}'| sed 's|##||'`" >> $GITHUB_ENV
       - name: Send notification
         uses: slackapi/slack-github-action@v1.23.0
         env:
@@ -48,13 +46,6 @@ jobs:
                    "text": {
                      "type": "mrkdwn",
                      "text": $RELEASE_NOTES
-                   }
-                 },
-                 {
-                   "type": "section",
-                   "text": {
-                     "type": "mrkdwn",
-                     "text": $RELEASE_NOTES_2
                    }
                  },
                  {
