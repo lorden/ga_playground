@@ -8,8 +8,10 @@ jobs:
   send_message:
     runs-on: ubuntu-latest
     steps:
-      - name: Clean release notes
-        run: echo "RELEASE_NOTES=`echo '${{toJSON(github.event.release.body)}}'| sed 's|##||'`" >> $GITHUB_ENV
+      - name: Clean release notes - Remove comments
+        run: echo "RELEASE_NOTES=`echo '${{toJSON(github.event.release.body)}}' | sed 's|<!--[^>]*>||'`" >> $GITHUB_ENV
+      - name: Clean release notes - Reformat titles
+        run: echo "RELEASE_NOTES=`echo $RELEASE_NOTES | sed -r 's|# (.*)\\r\\n#|*\1* \\r\\n#|'`" >> $GITHUB_ENV
       - name: Send notification
         uses: slackapi/slack-github-action@v1.23.0
         env:
