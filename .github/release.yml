@@ -1,13 +1,13 @@
 changelog:
   categories:
-    - title: New Features 🎉
+    - title: New Features
       labels:
         - feat
         - feature
-    - title: Fixes 🐛
+    - title: Fixes
       labels:
         - bug
         - fix
-    - title: Other changes 🤖
+    - title: Other changes
       labels:
         - "*"
