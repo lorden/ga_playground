@@ -1,6 +1,7 @@
 """Script to clean Github release notes syntax for a Slack message."""
 import os
 import re
+import sys
 
 def clean_notes(notes):
   clean_notes = re.sub("(<!--.*?-->)", "", notes, flags=re.DOTALL)
@@ -10,4 +11,4 @@ def clean_notes(notes):
     ef.write(f'RELEASE_NOTES={clean_notes}')
 
 if __name__ == '__main__':
-  clean_notes(argv[1])
+  clean_notes(sys.argv[1])
