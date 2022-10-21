@@ -8,8 +8,11 @@ jobs:
   send_message:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Clean release notes
         run: python .github/workflows/clean_release_notes.py ${{toJSON(github.event.release.body)}}
+
       - name: Send notification
         uses: slackapi/slack-github-action@v1.23.0
         env:
