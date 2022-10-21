@@ -36,21 +36,7 @@ jobs:
                    "type": "section",
                    "text": {
                      "type": "mrkdwn",
-                     "text": "*Information (raw):*"
-                   }
-                 },
-                 {
-                   "type": "section",
-                   "text": {
-                     "type": "mrkdwn",
-                     "text": "${{ github.event.release.body }}"
-                   }
-                 },
-                 {
-                   "type": "section",
-                   "text": {
-                     "type": "mrkdwn",
-                     "text": "*Information (toJSON):*"
+                     "text": "*Release Notes:*"
                    }
                  },
                  {
