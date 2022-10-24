@@ -7,14 +7,17 @@ def clean_notes(notes):
   # Remove comments
   clean_notes = re.sub("(<!--.*?-->)", "", notes, flags=re.DOTALL)
 
-  # Change h2 titles
-  clean_notes = re.sub('\n## (.*?)\n', r'\n*\1*\n', clean_notes)
-
-  # Change h3 titles
-  clean_notes = re.sub('\n### (.*?)\n', r'\n*_\1_*\n', clean_notes)
+  # Transform new lines
+  clean_notes = re.sub(r'\\r\\n', r'\n', clean_notes)
 
   # Change bullet points
-  clean_notes = re.sub('\n\* (.*?)\n', r'\n• \1\n', clean_notes, flags=re.DOTALL)
+  clean_notes = re.sub(r'\* (.*)', r'• \1', clean_notes)
+
+  # Change h3 titles
+  clean_notes = re.sub(r'### (.*)', r'*_\1_*', clean_notes)
+
+  # Change h2 titles
+  clean_notes = re.sub(r'## (.*)', r'*\1*', clean_notes)
 
   return clean_notes
 
