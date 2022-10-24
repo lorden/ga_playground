@@ -1,4 +1,5 @@
 """Script to clean Github release notes syntax for a Slack message."""
+import json
 import os
 import re
 import sys
@@ -19,7 +20,7 @@ def clean_notes(notes):
   # Change h2 titles
   clean_notes = re.sub(r'## (.*)', r'*\1*', clean_notes)
 
-  return repr(clean_notes.strip())
+  return json.dumps(clean_notes.strip())
 
 def set_env_var(name, content):
   env_file = os.getenv('GITHUB_ENV')
