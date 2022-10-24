@@ -8,7 +8,7 @@ def clean_notes(notes):
   clean_notes = re.sub("(<!--.*?-->)", "", notes, flags=re.DOTALL)
 
   # Transform new lines
-  clean_notes = re.sub('\r\n', '\n', clean_notes)
+  clean_notes = re.sub(r'\\r\\n', '\n', clean_notes)
 
   # Change bullet points
   clean_notes = re.sub(r'\* (.*)', r'• \1', clean_notes)
