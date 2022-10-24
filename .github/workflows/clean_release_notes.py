@@ -14,7 +14,8 @@ def clean_notes(notes):
   clean_notes = re.sub(r'\* (.*)', r'• \1', clean_notes)
 
   # Change h3 titles
-  clean_notes = re.sub(r'### (.*)', r'*_\1_*', clean_notes)
+  # clean_notes = re.sub(r'### (.*)', r'*_\1_*', clean_notes)
+  clean_notes = re.sub(r'### (.*)', r'*\1*', clean_notes)
 
   # Change h2 titles
   clean_notes = re.sub(r'## (.*)', r'*\1*', clean_notes)
