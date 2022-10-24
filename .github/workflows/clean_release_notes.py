@@ -21,7 +21,7 @@ def clean_notes(notes):
   clean_notes = re.sub(r'## (.*)', r'*\1*', clean_notes)
 
   # Change h2 titles
-  clean_notes = re.sub('**', '*', clean_notes)
+  clean_notes = re.sub(r'\*\*', '*', clean_notes)
 
   return json.dumps(clean_notes.strip())
 
