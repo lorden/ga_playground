@@ -24,7 +24,7 @@ def clean_notes(notes):
 def set_env_var(name, content):
   env_file = os.getenv('GITHUB_ENV')
   with open(env_file, 'a') as ef:
-    ef.write(f'{name}={content}')
+    ef.write(f'{name}="{content}"')
 
 if __name__ == '__main__':
   notes = clean_notes(sys.argv[1])
