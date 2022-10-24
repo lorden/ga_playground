@@ -41,7 +41,7 @@ jobs:
                    "type": "section",
                    "text": {
                      "type": "mrkdwn",
-                     "text": "${{ env.RELEASE_NOTES }}"
+                     "text": ${{ env.RELEASE_NOTES }}
                    }
                  }
               ]
