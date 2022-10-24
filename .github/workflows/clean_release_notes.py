@@ -20,6 +20,9 @@ def clean_notes(notes):
   # Change h2 titles
   clean_notes = re.sub(r'## (.*)', r'*\1*', clean_notes)
 
+  # Change h2 titles
+  clean_notes = re.sub('**', '*', clean_notes)
+
   return json.dumps(clean_notes.strip())
 
 def set_env_var(name, content):
